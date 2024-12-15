@@ -42,7 +42,11 @@ const startScanner = async () => {
   try {
     await html5QrCode.start(
       selectedCamera.value,
-      { fps: 10, qrbox: { width: 250, height: 250 } },
+      {
+        fps: 15,
+        qrbox: { width: 300, height: 300 },
+        disableFlip: true,
+      },
       (decodedText) => {
         qrCodeResult.value = decodedText;
         stopScanner();
